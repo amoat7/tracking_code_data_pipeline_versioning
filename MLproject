@@ -1,0 +1,47 @@
+name: dl_pipeline
+conda_env: conda.yaml
+
+entry_points:
+    main:
+        parameters:
+            description: Comma-separated list of dl pipeline steps to execute
+            type: str
+            default: all
+        command: "python main.py --steps {pipeline-steps}"
+    
+    download_data:
+        parameters:
+            download_url:
+                description: a url to download the data for  dl model
+                type: str
+                default: https://github.com/amoat7/GCP-APIs/blob/master/dataset.csv
+            local_folder:
+                description: a local folder to store the downloaded data
+                type: str
+                default: ./data
+            pipeline_run_name:
+                description: an mlflow run name
+                type: str
+                default: pipeline
+        command: "python pipeline/download_data.py --download_url {download_url}  --local_folder {local_folder} --pipeline_run_name {pipeline_run_name}"
+    
+    training_model:
+        parameters:
+            data_path:
+                description: data path to downloaded data
+                type: str
+                default: None
+        command: "python pipeline/training_model.py --data_path {data_path}"
+    
+    register_model:
+        parameters:
+            mlflow_run_id:
+                description: an mlflow run id 
+                type: str
+                default: None
+            registered_model_name:
+                description: a registered model name
+                type: str
+                default: dl_model
+        command: "python pipeline/register_model.py --mlflow_run_id {mlflow_run_id} --registered_model_name {registered_model_name}"
+

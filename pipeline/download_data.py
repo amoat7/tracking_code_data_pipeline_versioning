@@ -22,7 +22,7 @@ def task(download_url, local_folder, pipeline_run_name):
             data.write(r.content)
         mlflow.log_param("download_url", download_url)
         mlflow.log_param("local_folder", local_folder)
-        mlflow.log_param("mlflow run id", mlflow.info.run_id)
+        mlflow.log_param("mlflow run id", mlrun.info.run_id)
         mlflow.set_tag('pipeline_step', __file__)
         mlflow.log_artifacts(local_folder, artifact_path="data")
 

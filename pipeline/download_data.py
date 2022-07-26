@@ -7,7 +7,7 @@ import click
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
 
-@click.command(help="This program downloads dfata for training deep learning model")
+@click.command(help="This program downloads data for training deep learning model")
 @click.option("--download_url", default="https://github.com/amoat7/GCP-APIs/blob/master/dataset.csv", help="remote url for downloading training data")
 @click.option("--local_folder", default="./data", help="This is a local data folder")
 @click.option("--pipeline_run_name", default="pipeline", help="This is the mlflow run name")

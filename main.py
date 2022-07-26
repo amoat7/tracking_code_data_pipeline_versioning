@@ -33,8 +33,10 @@ def run_pipeline(steps):
 
     with mlflow.start_run(run_name='pipeline', nested=True) as active_run:
         if "download_data" in active_steps:
-            download_run = mlflow.run(".", "download_data", parameters={})
+            download_run = mlflow.projects.run("/com.docker.devenvironments.code/tracking_code_data_pipeline_versioning/", "download_data", parameters={})
             download_run = mlflow.tracking.MlflowClient().get_run(download_run.run_id)
-            
+            pass
+
+
 if __name__ == "__main__":
     run_pipeline()

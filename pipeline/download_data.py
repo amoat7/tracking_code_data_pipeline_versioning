@@ -4,6 +4,7 @@ import os
 import logging
 import click
 import requests
+import os
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
@@ -16,6 +17,7 @@ def task(download_url, local_folder, pipeline_run_name):
     with mlflow.start_run(run_name=pipeline_run_name) as mlrun:
         logger.info(f"Downloading data from {download_url}")
         r = requests.get(download_url, allow_redirects=True)
+        os.makedirs(local_folder, exist_ok=True)
         with open(f'{local_folder}/data.csv', 'wb') as data:
             data.write(r.content)
         mlflow.log_param("download_url", download_url)

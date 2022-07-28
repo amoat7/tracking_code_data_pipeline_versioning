@@ -1,4 +1,4 @@
-from email.policy import default
+import pandas as pd 
 import mlflow
 import os
 import logging
@@ -16,10 +16,8 @@ logger = logging.getLogger()
 def task(download_url, local_folder, pipeline_run_name):
     with mlflow.start_run(run_name=pipeline_run_name) as mlrun:
         logger.info(f"Downloading data from {download_url}")
-        r = requests.get(download_url, allow_redirects=True)
-        os.makedirs(local_folder, exist_ok=True)
-        with open(f'{local_folder}/training_data.csv', 'wb') as data:
-            data.write(r.content)
+        df = pd.read_csv(download_url)
+        df.to_csv(f"{local_folder}/training_data.csv", index=False)
         mlflow.log_param("download_url", download_url)
         mlflow.log_param("local_folder", local_folder)
         mlflow.log_param("mlflow run id", mlrun.info.run_id)

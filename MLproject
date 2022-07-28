@@ -15,7 +15,7 @@ entry_points:
             download_url:
                 description: a url to download the data for  dl model
                 type: str
-                default: https://github.com/amoat7/GCP-APIs/blob/master/dataset.csv
+                default: https://raw.githubusercontent.com/amoat7/GCP-APIs/master/dataset.csv
             local_folder:
                 description: a local folder to store the downloaded data
                 type: str

@@ -5,7 +5,7 @@ import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 import pandas as pd
-
+import os
 
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
@@ -19,6 +19,7 @@ def task(data_path, pipeline_run_name):
     with mlflow.start_run(run_name=pipeline_run_name) as mlrun:
         # first neural network with keras tutorial
         # load the dataset
+        print(os.listdir("."))
         dataset = pd.read_csv("data/training_data.csv")
         # split into input (X) and output (y) variables
         X = dataset[:,0:8]

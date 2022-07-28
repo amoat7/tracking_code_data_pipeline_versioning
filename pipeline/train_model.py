@@ -20,7 +20,7 @@ def task(data_path, pipeline_run_name):
         # first neural network with keras tutorial
         # load the dataset
         print(os.listdir("."))
-        dataset = pd.read_csv("data/training_data.csv")
+        dataset = pd.read_csv("")
         # split into input (X) and output (y) variables
         X = dataset[:,0:8]
         y = dataset[:,8]

@@ -26,13 +26,13 @@ entry_points:
                 default: pipeline
         command: "python pipeline/download_data.py --download_url {download_url}  --local_folder {local_folder} --pipeline_run_name {pipeline_run_name}"
     
-    training_model:
+    train_model:
         parameters:
             data_path:
                 description: data path to downloaded data
                 type: str
                 default: None
-        command: "python pipeline/training_model.py --data_path {data_path}"
+        command: "python pipeline/train_model.py --data_path {data_path}"
     
     register_model:
         parameters:

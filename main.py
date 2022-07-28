@@ -8,7 +8,7 @@ logger = logging.getLogger()
 
 _steps = [
     "download_data",
-    "training_model",
+    "train_model",
     "register_model"
 ]
 
@@ -39,8 +39,8 @@ def run_pipeline(steps):
             logger.info(f'downloaded data is located locally in folder: {file_path_uri}')
             logger.info(download_run)
 
-        if "training_model" in active_steps:
-            training_model_run = mlflow.projects.run("/com.docker.devenvironments.code/tracking_code_data_pipeline_versioning/", "training_model", parameters={"data_path": file_path_uri})
+        if "train_model" in active_steps:
+            training_model_run = mlflow.projects.run("/com.docker.devenvironments.code/tracking_code_data_pipeline_versioning/", "train_model", parameters={"data_path": file_path_uri})
             training_model_run = mlflow.tracking.MlflowClient().get_run(training_model_run.run_id)
             logger.info(training_model_run)
 

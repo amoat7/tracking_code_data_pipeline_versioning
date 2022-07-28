@@ -19,7 +19,7 @@ entry_points:
             local_folder:
                 description: a local folder to store the downloaded data
                 type: str
-                default: ./data
+                default: data
             pipeline_run_name:
                 description: an mlflow run name
                 type: str
@@ -31,7 +31,7 @@ entry_points:
             data_path:
                 description: data path to downloaded data
                 type: str
-                default: ./data
+                default: data
             pipeline_run_name:
                 description: an mlflow run name
                 type: str

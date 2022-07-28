@@ -21,8 +21,8 @@ def task(data_path, pipeline_run_name):
         # load the dataset
         dataset = pd.read_csv("https://raw.githubusercontent.com/amoat7/GCP-APIs/master/dataset.csv")
         # split into input (X) and output (y) variables
-        X = dataset[:,0:8]
-        y = dataset[:,8]
+        X = dataset.iloc[:,0:8]
+        y = dataset.iloc[:,8]
 
         # define the keras model
         model = Sequential()

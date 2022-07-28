@@ -25,7 +25,6 @@ def run_pipeline(steps):
     experiment = mlflow.get_experiment_by_name(EXPERIMENT_NAME)
     logger.info(f"pipeline experiment_id: {experiment.experiment_id}")
 
-    print(steps)
 
     # Steps to execute
     active_steps = steps.split(",") if steps!="all" else _steps

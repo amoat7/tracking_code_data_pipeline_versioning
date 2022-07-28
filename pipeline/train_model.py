@@ -19,8 +19,7 @@ def task(data_path, pipeline_run_name):
     with mlflow.start_run(run_name=pipeline_run_name) as mlrun:
         # first neural network with keras tutorial
         # load the dataset
-        print(os.listdir("https://raw.githubusercontent.com/amoat7/GCP-APIs/master/dataset.csv"))
-        dataset = pd.read_csv("")
+        dataset = pd.read_csv("https://raw.githubusercontent.com/amoat7/GCP-APIs/master/dataset.csv")
         # split into input (X) and output (y) variables
         X = dataset[:,0:8]
         y = dataset[:,8]

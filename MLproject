@@ -32,7 +32,11 @@ entry_points:
                 description: data path to downloaded data
                 type: str
                 default: None
-        command: "python pipeline/train_model.py --data_path {data_path}"
+            pipeline_run_name:
+                description: an mlflow run name
+                type: str
+                default: pipeline
+        command: "python pipeline/train_model.py --data_path {data_path} --pipeline_run_name {pipeline_run_name}"
     
     register_model:
         parameters:
@@ -44,5 +48,9 @@ entry_points:
                 description: a registered model name
                 type: str
                 default: dl_model
-        command: "python pipeline/register_model.py --mlflow_run_id {mlflow_run_id} --registered_model_name {registered_model_name}"
+            pipeline_run_name:
+                description: an mlflow run name
+                type: str
+                default: pipeline
+        command: "python pipeline/register_model.py --mlflow_run_id {mlflow_run_id} --registered_model_name {registered_model_name} --pipeline_run_name {pipeline_run_name}"
 

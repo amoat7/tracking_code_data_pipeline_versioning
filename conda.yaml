@@ -7,3 +7,4 @@ dependencies:
   - pip
   - pip:
     - -r requirements.txt
+prefix: /home/vscode/miniconda3/envs/keras

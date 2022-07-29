@@ -49,7 +49,7 @@ def run_pipeline(steps):
 
         if "register_model" in active_steps:
             if training_model_run_id is not None and training_model_run_id!= 'None':
-                register_model_run = mlflow.run("https://github.com/amoat7/tracking_code_data_pipeline_versioning.git", parameters={"mlflow_run_id": training_model_run_id})
+                register_model_run = mlflow.run("https://github.com/amoat7/tracking_code_data_pipeline_versioning.git","register_model", parameters={"mlflow_run_id": training_model_run_id})
                 register_model_run = mlflow.tracking.MlflowClient().get_run(register_model_run.run_id)
                 logger.info(register_model_run)
             else:

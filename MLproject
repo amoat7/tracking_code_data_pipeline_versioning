@@ -4,7 +4,7 @@ conda_env: conda.yaml
 
 
 entry_points:
-    download_data:
+    main:
         parameters:
             download_url:
                 description: a url to download the data for  dl model

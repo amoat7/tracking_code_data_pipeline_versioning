@@ -1,0 +1,4 @@
+venv
+htmlcov
+.pytest_cache
+env_private.sh

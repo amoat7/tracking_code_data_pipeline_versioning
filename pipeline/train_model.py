@@ -7,6 +7,8 @@ from tensorflow.keras.layers import Dense
 import pandas as pd
 import os
 
+EXPERIMENT_NAME = '/Users/d.amoateng110@gmail.com/dl_model_pipeline'
+mlflow.set_experiment(EXPERIMENT_NAME)
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()

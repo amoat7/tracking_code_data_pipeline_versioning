@@ -4,14 +4,6 @@ conda_env: conda.yaml
 
 
 entry_points:
-    main:
-        parameters:
-            pipeline_steps:
-                description: Comma-separated list of dl pipeline steps to execute
-                type: str
-                default: all
-        command: "python main.py --steps {pipeline_steps}"
-    
     download_data:
         parameters:
             download_url:

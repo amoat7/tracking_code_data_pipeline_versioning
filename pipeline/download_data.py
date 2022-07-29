@@ -6,6 +6,10 @@ import requests
 import os
 import pandas as pd
 
+
+EXPERIMENT_NAME = '/Users/d.amoateng110@gmail.com/dl_model_pipeline'
+mlflow.set_experiment(EXPERIMENT_NAME)
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
 
@@ -13,6 +17,9 @@ logger = logging.getLogger()
 @click.option("--download_url", default="https://raw.githubusercontent.com/amoat7/GCP-APIs/master/dataset.csv", help="remote url for downloading training data")
 @click.option("--local_folder", default="./data", help="This is a local data folder")
 @click.option("--pipeline_run_name", default="pipeline", help="This is the mlflow run name")
+
+
+
 def task(download_url, local_folder, pipeline_run_name):
     with mlflow.start_run(run_name=pipeline_run_name) as mlrun:
         logger.info(f"Downloading data from {download_url}")

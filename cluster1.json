@@ -1,0 +1,23 @@
+
+{
+    "spark_version": "11.1.x-cpu-ml-scala2.12",
+    "spark_conf": {},
+    "gcp_attributes": {
+      "use_preemptible_executors": false
+    },
+    "node_type_id": "n1-standard-8",
+    "driver_node_type_id": "n1-standard-8",
+    "ssh_public_keys": [],
+    "custom_tags": {},
+    "spark_env_vars": {
+      "PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+    },
+    "autoscale": {
+        "min_workers": 1,
+        "max_workers": 3
+    },
+    "enable_elastic_disk": false,
+    "cluster_source": "API",
+    "init_scripts": []
+  }
+  

@@ -5,10 +5,6 @@ import click
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
-EXPERIMENT_NAME = 'dl_model_pipeline'
-
-
-mlflow.set_experiment(EXPERIMENT_NAME)
 
 _steps = [
     "download_data",
@@ -24,7 +20,7 @@ def run_pipeline(steps):
     #os.environ["AWS_SECRET_ACCESS_KEY"] = "minio123"
     #os.environ["MLFLOW_S3_ENDPOINT_URL"] = "http://minio:9000"
 
-    EXPERIMENT_NAME = 'dl_model_pipeline'
+    EXPERIMENT_NAME = '/Users/d.amoateng110@gmail.com/dl_model_pipeline'
     mlflow.set_experiment(EXPERIMENT_NAME)
     experiment = mlflow.get_experiment_by_name(EXPERIMENT_NAME)
     logger.info(f"pipeline experiment_id: {experiment.experiment_id}")

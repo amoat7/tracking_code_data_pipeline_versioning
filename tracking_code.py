@@ -11,7 +11,7 @@ os.environ['MLFLOW_TRACKING_URI'] = 'http://mlflow_nginx:80'
 os.environ["AWS_ACCESS_KEY_ID"] = "minio"
 os.environ["AWS_SECRET_ACCESS_KEY"] = "minio123"
 os.environ["MLFLOW_S3_ENDPOINT_URL"] = "http://minio:9000"
-EXPERIMENT_NAME = 'code_tracking'
+EXPERIMENT_NAME = '/Users/d.amoateng110@gmail.com/dl_model_pipeline'
 
 mlflow.set_experiment(EXPERIMENT_NAME)
 experiment = mlflow.get_experiment_by_name(EXPERIMENT_NAME)

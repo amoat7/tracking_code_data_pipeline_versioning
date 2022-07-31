@@ -3,7 +3,8 @@
     "spark_version": "11.1.x-cpu-ml-scala2.12",
     "spark_conf": {},
     "gcp_attributes": {
-      "use_preemptible_executors": false
+      "use_preemptible_executors": false,
+      "google_service_account": "david-732@neural-clarity-356205.iam.gserviceaccount.com"
     },
     "node_type_id": "n1-standard-8",
     "driver_node_type_id": "n1-standard-8",

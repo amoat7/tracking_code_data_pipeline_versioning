@@ -34,7 +34,7 @@ def run_pipeline(steps):
     with mlflow.start_run(run_name='pipeline', nested=True) as active_run:
     
         if "download_data" in active_steps:
-            download_run = mlflow.run("https://github.com/amoat7/tracking_code_data_pipeline_versioning.git", "download_data", parameters={})
+            download_run = mlflow.run("https://github.com/amoat7/tracking_code_data_pipeline_versioning.git", "download_data", parameters={}, env_manager="local")
             download_run = mlflow.tracking.MlflowClient().get_run(download_run.run_id)
             file_path_uri = download_run.data.params['local_folder']
             logger.info(f'downloaded data is located locally in folder: {file_path_uri}')
@@ -43,14 +43,14 @@ def run_pipeline(steps):
         
 
         if "train_model" in active_steps:
-            training_model_run = mlflow.run("https://github.com/amoat7/tracking_code_data_pipeline_versioning.git", "train_model", parameters={"data_path": file_path_uri})
+            training_model_run = mlflow.run("https://github.com/amoat7/tracking_code_data_pipeline_versioning.git", "train_model", parameters={"data_path": file_path_uri},env_manager="local")
             training_model_run_id =  training_model_run.run_id
             training_model_run = mlflow.tracking.MlflowClient().get_run(training_model_run.run_id)
             logger.info(training_model_run)
 
         if "register_model" in active_steps:
             if training_model_run_id is not None and training_model_run_id!= 'None':
-                register_model_run = mlflow.run("https://github.com/amoat7/tracking_code_data_pipeline_versioning.git","register_model", parameters={"mlflow_run_id": training_model_run_id})
+                register_model_run = mlflow.run("https://github.com/amoat7/tracking_code_data_pipeline_versioning.git","register_model", parameters={"mlflow_run_id": training_model_run_id},env_manager="local")
                 register_model_run = mlflow.tracking.MlflowClient().get_run(register_model_run.run_id)
                 logger.info(register_model_run)
             else:

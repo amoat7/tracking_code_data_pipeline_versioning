@@ -19,7 +19,7 @@ entry_points:
                 type: str
                 default: ./data
             pipeline_run_name:
-                description: an mlflow run name
+                description: the mlflow run name
                 type: str
                 default: pipeline
         command: "python pipeline/download_data.py --download_url {download_url}  --local_folder {local_folder} --pipeline_run_name {pipeline_run_name}"

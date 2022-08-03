@@ -18,8 +18,6 @@ logger = logging.getLogger()
 @click.option("--local_folder", default="./data", help="This is a local data folder")
 @click.option("--pipeline_run_name", default="pipeline", help="This is the mlflow run name")
 
-
-
 def task(download_url, local_folder, pipeline_run_name):
     with mlflow.start_run(run_name=pipeline_run_name) as mlrun:
         logger.info(f"Downloading data from {download_url}")

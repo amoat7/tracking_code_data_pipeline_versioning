@@ -2,6 +2,7 @@ import mlflow
 import logging
 import click
 
+
 EXPERIMENT_NAME = '/Users/d.amoateng110@gmail.com/dl_model_pipeline'
 mlflow.set_experiment(EXPERIMENT_NAME)
 

@@ -1,3 +1,1 @@
 export MLFLOW_TRACKING_URI=databricks
-export DATABRICKS_HOST=
-export DATBRICKS_TOKEN=

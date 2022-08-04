@@ -40,7 +40,7 @@ def run_pipeline(steps):
         if "train_model" in active_steps:
             training_model_run = mlflow.run("https://github.com/amoat7/tracking_code_data_pipeline_versioning.git", "train_model", parameters={"data_path": file_path_uri},env_manager="local")
             training_model_run_id =  training_model_run.run_id
-            training_model_run = mlflow.tracking.MlflowClient().get_run(training_model_run.run_id)
+            training_model_run = mlflow.tracking.MlflowClient().get_run(training_model_run_id)
             logger.info(training_model_run)
 
         if "register_model" in active_steps:

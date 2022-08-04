@@ -33,7 +33,7 @@ def task(data_path, pipeline_run_name):
 
 
         # compile the keras model
-        model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+        model.compile(loss='binary_crossentropy', optimizer=tf.keras.optimizers.Adam(), metrics=['accuracy'])
 
         # fit the keras model on the dataset
         model.fit(X, y, epochs=150, batch_size=10)

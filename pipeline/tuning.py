@@ -42,7 +42,7 @@ def task(pipeline_run_name="pipeline"):
             objective='val_loss',
             max_trials=5)
         # fit the keras model on the dataset
-        tuner.search(X, y, epochs=5, batch_size=10)
+        tuner.search(X, y, epochs=5, batch_size=10, validation_split=0.1)
 
         best_model = tuner.get_best_models()[0]
 

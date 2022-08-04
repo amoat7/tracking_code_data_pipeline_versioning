@@ -8,6 +8,7 @@ logger = logging.getLogger()
 
 _steps = [
     "download_data",
+    "tuning",
     "train_model",
     "register_model"
 
@@ -34,7 +35,12 @@ def run_pipeline(steps):
             file_path_uri = download_run.data.params['local_folder']
             logger.info(f'downloaded data is located locally in folder: {file_path_uri}')
             logger.info(download_run)
-    
+
+        if "tuning" in active_steps:
+            tuning_run = mlflow.run("https://github.com/amoat7/tracking_code_data_pipeline_versioning.git", "tuning", parameters={}, env_manager="local")
+            tuning_run = mlflow.tracking.MlflowClient().get_run(tuning_run.run_id)
+            logger.info(tuning_run)
+        
         
 
         if "train_model" in active_steps:

@@ -23,6 +23,10 @@ entry_points:
                 type: str
                 default: pipeline
         command: "python pipeline/download_data.py --download_url {download_url}  --local_folder {local_folder} --pipeline_run_name {pipeline_run_name}"
+
+
+    tuning:
+        command: "python pipeline/tuning.py"
     
     train_model:
         parameters:

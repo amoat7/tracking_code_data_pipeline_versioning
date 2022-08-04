@@ -42,10 +42,10 @@ def task(pipeline_run_name="pipeline"):
             objective='val_loss',
             max_trials=5)
         # fit the keras model on the dataset
-        tuner.search(X, y, epochs=150, batch_size=10)
+        tuner.search(X, y, epochs=5, batch_size=10)
 
         best_model = tuner.get_best_models()[0]
-        
+
         run_id = mlrun.info.run_id
         logger.info("run_id: {}; lifecycle_stage: {}".format(run_id,
                                                              mlflow.get_run(run_id).info.lifecycle_stage))

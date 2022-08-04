@@ -58,7 +58,9 @@ def finetuning_dl_model(config, pipeline_run_name = "pipeline"):
         mlflow.set_tag('pipeline_step', __file__)
 
 
-def run_hpo_dl_model(num_samples=10, num_epochs=3, gpus_per_trial=0, tracking_uri=None):
+def run_hpo_dl_model(tracking_uri, experiment_name, num_samples=10, num_epochs=3, gpus_per_trial=0):
+    mlflow.set_tracking_uri(tracking_uri)
+    mlflow.set_experiment(experiment_name)
     config = {
         "lr": tune.loguniform(1e-4, 1e-1),
         "batch_size": tune.choice([16, 32, 64, 128]),
@@ -92,7 +94,9 @@ def run_hpo_dl_model(num_samples=10, num_epochs=3, gpus_per_trial=0, tracking_ur
 def task():
     run_hpo_dl_model(num_samples=10,
                      num_epochs=3,
-                     gpus_per_trial=0)
+                     gpus_per_trial=0,
+                     tracking_uri="databricks",
+                     experiment_name=EXPERIMENT_NAME)
 
 
 if __name__ == "__main__":

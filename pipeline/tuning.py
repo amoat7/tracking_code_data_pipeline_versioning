@@ -59,6 +59,7 @@ def finetuning_dl_model(config, pipeline_run_name = "pipeline"):
 
 
 def run_hpo_dl_model(tracking_uri, experiment_name, num_samples=10, num_epochs=3, gpus_per_trial=0):
+    import ray
     ray.init(local_mode=True)
     mlflow.set_tracking_uri(tracking_uri)
     mlflow.set_experiment(experiment_name)

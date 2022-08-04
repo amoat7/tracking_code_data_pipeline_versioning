@@ -16,7 +16,7 @@ logger = logging.getLogger()
 @click.option("--data_path", default="data", help="This is the path to data.")
 @click.option("--pipeline_run_name", default="pipeline", help="This is the mlflow run name")
 def task(data_path, pipeline_run_name):
-    mlflow.keras.autolog()
+    mlflow.tensorflow.autolog()
     with mlflow.start_run(run_name=pipeline_run_name) as mlrun:
         # first neural network with keras tutorial
         # load the dataset

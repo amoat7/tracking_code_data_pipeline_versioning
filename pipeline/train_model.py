@@ -25,6 +25,7 @@ def task(data_path, pipeline_run_name):
         X = dataset.iloc[:,0:8]
         y = dataset.iloc[:,8]
 
+        
         # define the keras model
         model = Sequential()
         model.add(Dense(12, input_shape=(8,), activation='relu'))

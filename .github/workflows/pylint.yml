@@ -20,4 +20,4 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       run: |
-        find . '*.py' -exec pylint --fail-under=2.0  {} \; 
+        find . -name '*.py' -exec pylint --fail-under=2.0  {} \; 
